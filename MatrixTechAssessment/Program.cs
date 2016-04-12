@@ -19,10 +19,12 @@ namespace MatrixTechAssessment
         {
             Console.WriteLine("{0} | Instantiating MatrixTechs class", DateTime.Now);
 
-            MatrixTechs result = JsonConvert.DeserializeObject<MatrixTechs>(Resources.JsonData);
+            //MatrixTechs result = JsonConvert.DeserializeObject<MatrixTechs>(Resources.JsonData);
+
+            MatrixTechs result = new MatrixTechs(JsonData);
             Console.WriteLine("BASE RESULT:\r\n{0}", result);
 
-            result.TransformData(DataBeginDate, DataEndDate, Resources.JsonData); // Populate data and set date filters
+            result.TransformData(DataBeginDate, DataEndDate, JsonData); // Populate data and set date filters
             Console.WriteLine("DEFAULT FILTER RESULT:\r\n{0}", result);
 
             result.TransformData(SearchBeginDate, SearchEndDate); // Use the pre-existing dataset and set date filters
